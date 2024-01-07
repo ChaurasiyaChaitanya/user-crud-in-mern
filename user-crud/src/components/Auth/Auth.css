@@ -1,0 +1,18 @@
+
+.container {
+    height: 100vh;
+}
+ 
+p {
+    text-align: right;
+}
+ 
+.form {
+    width: 350px;
+    height: min-content;
+    padding: 20px;
+    border-radius: 5px; 
+    color: black;
+    background-color: white;
+    text-align: start;
+}

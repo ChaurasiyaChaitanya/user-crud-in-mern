@@ -1,0 +1,35 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  margin: 2rem;
+  max-width: 80rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.6rem;
+}
+
+.card {
+  padding: 2em;
+  border: 1px solid #888;
+}
+
+input {
+  padding: 5px;
+  outline: none;
+  border-radius: 0.4em;
+}
+
+.read-the-docs {
+  color: #888;
+}
