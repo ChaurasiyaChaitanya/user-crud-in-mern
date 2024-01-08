@@ -8,4 +8,12 @@ userRouter.get('/', async (req,res) => {
 })
 
 
+userRouter.post('/', async (req,res) => {
+    const user = new User(req.body);
+    const data = await user.save();
+ 
+    res.status(201).json(data);
+});
+
+
 module.exports = userRouter;

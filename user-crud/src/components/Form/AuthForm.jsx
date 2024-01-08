@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
  
 function AuthForm(props) {
  
-    const { signup, formData, inputHandler, handleAuthForm } = props.sendProps;
+    const { signup, formData, inputHandler, handleAuthForm, AuthSignupHandler, AuthLoginHandler } = props.sendProps;
  
     return (
         <>
@@ -26,7 +26,7 @@ function AuthForm(props) {
                             <label htmlFor='cpassword' className='form-label'>Confirm Password</label>
                             <input type='text' name='cpassword' className='form-control' placeholder='Enter confirm password' value={formData.cpassword} onChange={inputHandler} />
                         </div>}
-                        <button type='submit' className={`btn w-100 mt-2 ${signup ? 'btn-primary' : 'btn-success'}`} >{signup ? "Sign up" : "Login"}</button>
+                        <button type='submit' className={`btn w-100 mt-2 ${signup ? 'btn-primary' : 'btn-success'}`} onClick={signup ? AuthSignupHandler : AuthLoginHandler} >{signup ? "Sign up" : "Login"}</button>
                         <p className='mt-3'>{signup ? "Already Registerd? " : "Don't have an Account? "}<Link to={'/'} onClick={handleAuthForm} className='text-decoration-none'>{signup ? "Login" : "Signup"}</Link></p>
                     </form>
                 </div>

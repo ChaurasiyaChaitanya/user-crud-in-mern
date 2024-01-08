@@ -30,6 +30,10 @@ input {
   border-radius: 0.4em;
 }
 
+.error {
+  color: wheat;
+}
+
 .read-the-docs {
   color: #888;
 }
