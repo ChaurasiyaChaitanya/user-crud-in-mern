@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Auth.css';
@@ -115,6 +115,20 @@ function Auth() {
         }
     }
 
+    const deleteUserHandler = async (e, id) => {
+        e.preventDefault();
+        try {
+            if(window.confirm("Do you want to Delete this record?")) {
+                const res = await axios.delete("http://localhost:5000/users/" + id);
+                console.log(res);
+                setMsg("User Deleted successfully..");
+                getUserHandler();
+            }
+        } catch (error) {
+            setError(error.message);
+        }
+    }
+
     const handleAuthForm = () => {
  
         setSignup(!signup);
@@ -148,7 +162,7 @@ function Auth() {
             <div>
                 <h2 className='mt-4'>Users Data</h2><button type="submit" className='btn btn-dark' onClick={handleAuthForm}>Logout</button>
                 <div className='container h-50'>
-                    {data ? <Card data={data} /> : "No Data Found!"}
+                    {data ? <Card data={data} deleteHandler={deleteUserHandler}/> : "No Data Found!"}
                 </div>
             </div>
             }

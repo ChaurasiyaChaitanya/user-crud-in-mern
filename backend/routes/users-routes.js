@@ -33,4 +33,17 @@ userRouter.post('/', async (req,res) => {
 });
 
 
+userRouter.delete('/:id', async (req,res) => {
+    const userId = req.params.id;
+    const userData = await User.findById(userId);
+ 
+    if(userData) {
+        await User.findByIdAndDelete(userId, userData);
+        res.status(200).json("User data Deleted successfully!");
+    } else {
+        res.status(400).json("No data found to perform Delete operation!");
+    }
+});
+
+
 module.exports = userRouter;
